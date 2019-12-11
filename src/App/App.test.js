@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import App from './App';
+import ReactDOM from 'react-dom';
 
 describe('APP', () => {
   it('renders without crashing', () => {
