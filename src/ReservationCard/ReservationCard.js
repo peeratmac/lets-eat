@@ -1,9 +1,13 @@
 import React from 'react';
 
-const ReservationCard = () => {
+const ReservationCard = ({ date, id, name, number, time }) => {
   return (
     <div>
-      <h1>ReservationCard</h1>
+      <h2>{name}</h2>
+      <p>{date}</p>
+      <p>{time}</p>
+      <p>Guests: {number}</p>
+      <button>Cancel</button>
     </div>
   );
 };
