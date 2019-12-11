@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getAllReservations } from '../apiCalls';
+import FormInput from '../FormInput/FormInput';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import './App.css';
 class App extends Component {
@@ -22,7 +23,9 @@ class App extends Component {
     return (
       <div className='App'>
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'></div>
+        <div className='resy-form'>
+          <FormInput />
+        </div>
         <div className='resy-container'>
           <ReservationContainer reservations={this.state.allReservationsData} />
         </div>
