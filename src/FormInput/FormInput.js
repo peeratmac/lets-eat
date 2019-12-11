@@ -7,7 +7,7 @@ class FormInput extends Component {
       name: '',
       date: '',
       time: '',
-      number: null
+      number: ''
     };
   }
 
@@ -18,6 +18,11 @@ class FormInput extends Component {
   handleSubmit = () => {
     const { name, date, time, number } = this.state;
     this.props.makeReservation(name, date, time, number);
+    this.clearInputs();
+  };
+
+  clearInputs = () => {
+    this.setState({ name: '', date: '', time: '', number: '' });
   };
 
   render() {
