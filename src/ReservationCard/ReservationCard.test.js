@@ -8,4 +8,18 @@ describe('RESERVATION CARD', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call on cancelReservation when the button is clicked to cancel a reservation', () => {
+    const mockCancelReservation = jest.fn();
+    const wrapper = shallow(
+      <ReservationCard id={1975} cancelReservation={mockCancelReservation} />
+    );
+
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
+
+    expect(mockCancelReservation).toHaveBeenCalledWith(1975);
+  });
 });
