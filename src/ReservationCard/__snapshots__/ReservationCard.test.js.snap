@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RESERVATION CARD should match the ReservationCard Component Snapshot 1`] = `
+<div>
+  <h2 />
+  <p />
+  <p />
+  <p>
+    Guests: 
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
+</div>
+`;
