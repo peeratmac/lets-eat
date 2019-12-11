@@ -56,7 +56,11 @@ class FormInput extends Component {
           value={this.state.number}
           placeholder='Number of Guests'
         />
-        <button onClick={this.handleMakeReservation}>Make Reservation</button>
+        <button
+          className='make-reservation-button'
+          onClick={this.handleMakeReservation}>
+          Make Reservation
+        </button>
       </div>
     );
   }
