@@ -40,6 +40,20 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   };
 
+  cancelReservation = id => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(data => {
+        const filteredReservations = this.state.allReservationsData.filter(
+          reservation => reservation.id !== id
+        );
+        this.setState({ allReservationsData: filteredReservations });
+      })
+      .catch(error => this.setState({ error: error.message }));
+  };
+
   render() {
     return (
       <div className='App'>
@@ -48,7 +62,10 @@ class App extends Component {
           <FormInput makeReservation={this.makeReservation} />
         </div>
         <div className='resy-container'>
-          <ReservationContainer reservations={this.state.allReservationsData} />
+          <ReservationContainer
+            reservations={this.state.allReservationsData}
+            cancelReservation={this.cancelReservation}
+          />
         </div>
       </div>
     );
