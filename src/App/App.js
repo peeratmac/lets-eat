@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getAllReservations } from '../apiCalls';
+// import { getAllReservations } from '../apiCalls';
+import FormInput from '../FormInput/FormInput';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import './App.css';
 class App extends Component {
@@ -7,7 +8,11 @@ class App extends Component {
     super();
     this.state = {
       allReservationsData: [],
-      error: ''
+      error: '',
+      name: '',
+      date: '',
+      time: '',
+      number: ''
     };
   }
 
@@ -18,11 +23,30 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   }
 
+  makeReservation = dataFromFormInput => {
+    fetch('http://localhost:3001/api/v1/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataFromFormInput)
+    })
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          allReservationsData: [...this.state.allReservationsData, data]
+        })
+      )
+      .catch(error => this.setState({ error: error.message }));
+  };
+
   render() {
     return (
       <div className='App'>
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'></div>
+        <div className='resy-form'>
+          <FormInput makeReservation={this.makeReservation} />
+        </div>
         <div className='resy-container'>
           <ReservationContainer reservations={this.state.allReservationsData} />
         </div>
