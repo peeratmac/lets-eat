@@ -15,9 +15,9 @@ class FormInput extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = () => {
-    const { name, date, time, number } = this.state;
-    this.props.makeReservation(name, date, time, number);
+  handleMakeReservation = () => {
+    const newReservationData = { ...this.state };
+    this.props.makeReservation(newReservationData);
     this.clearInputs();
   };
 
@@ -56,7 +56,7 @@ class FormInput extends Component {
           value={this.state.number}
           placeholder='Number of Guests'
         />
-        <button onClick={this.handleSubmit}>Make Reservation</button>
+        <button onClick={this.handleMakeReservation}>Make Reservation</button>
       </div>
     );
   }
