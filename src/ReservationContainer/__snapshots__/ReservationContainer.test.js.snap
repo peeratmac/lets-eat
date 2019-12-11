@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RESERVATION CONTAINER should match the ReservationContainer Component Snapshot 1`] = `
-<div>
+<div
+  className="card-container"
+>
   <ReservationCard
     cancelReservation={[MockFunction]}
     date="12/25"

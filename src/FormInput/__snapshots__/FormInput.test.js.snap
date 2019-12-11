@@ -31,6 +31,7 @@ exports[`FORM INPUT should match the FormInput Component Snapshot 1`] = `
     value=""
   />
   <button
+    className="make-reservation-button"
     onClick={[Function]}
   >
     Make Reservation
